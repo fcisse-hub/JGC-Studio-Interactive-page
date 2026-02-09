@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Fantac Cissé - JGC Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #0a0a0a;
+            color: #d4c5a9;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #c9a961;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #d4c5a9;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #c9a961;
+        }
+
+        /* Main Content */
+        .main-container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            padding-bottom: 60px;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1600px;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Interactive Hotspots */
+        .hotspot {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border-radius: 50%;
+            pointer-events: auto;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .hotspot.visible {
+            opacity: 1;
+        }
+
+        .hotspot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(100, 200, 255, 0.8) 0%, rgba(100, 200, 255, 0.5) 40%, rgba(100, 200, 255, 0.2) 70%, transparent 100%);
+            opacity: 1;
+            border-radius: 50%;
+            animation: permanentGlow 1.5s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(100, 200, 255, 0.6), inset 0 0 20px rgba(100, 200, 255, 0.3);
+            pointer-events: none;
+        }
+
+        .hotspot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            border: 2px solid rgba(100, 200, 255, 0.6);
+            border-radius: 50%;
+            animation: ripple 2s ease-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes permanentGlow {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .hotspot:hover::before {
+            animation: strongGlow 0.8s infinite;
+            background: radial-gradient(circle, rgba(100, 200, 255, 1) 0%, rgba(100, 200, 255, 0.8) 40%, rgba(100, 200, 255, 0.4) 70%, transparent 100%);
+            box-shadow: 0 0 50px rgba(100, 200, 255, 1), inset 0 0 30px rgba(100, 200, 255, 0.6);
+        }
+
+        @keyframes strongGlow {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.4);
+            }
+        }
+
+        /* Hotspot positions - Tous les hotspots fonctionnels */
+        .hotspot-book {
+            top: 28%;
+            left: 10%;
+            width: 100px;
+            height: 200px;
+        }
+
+        .hotspot-lamp {
+            top: 53%;
+            left: 24%;
+            width: 70px;
+            height: 120px;
+        }
+
+        .hotspot-tea {
+            top: 78%;
+            left: 22%;
+            width: 60px;
+            height: 60px;
+        }
+
+        .hotspot-mic {
+            top: 70%;
+            left: 35%;
+            width: 60px;
+            height: 90px;
+        }
+
+        .hotspot-frame {
+            top: 57%;
+            left: 46.5%;
+            width: 70px;
+            height: 70px;
+        }
+
+        .hotspot-laptop {
+            top: 72%;
+            left: 60%;
+            width: 140px;
+            height: 85px;
+        }
+
+        .hotspot-typewriter {
+            top: 70%;
+            right: 12%;
+            width: 130px;
+            height: 85px;
+        }
+
+        /* Welcome Message */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 1;
+            pointer-events: all;
+            transition: opacity 0.8s ease;
+        }
+
+        .welcome-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .welcome-box {
+            background: linear-gradient(135deg, rgba(42, 34, 24, 0.95) 0%, rgba(26, 21, 16, 0.95) 100%);
+            border: 3px solid #c9a961;
+            border-radius: 20px;
+            padding: 50px 60px;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            animation: smokeAppear 1.5s ease forwards;
+            box-shadow: 0 0 60px rgba(201, 169, 97, 0.3),
+                        inset 0 0 40px rgba(201, 169, 97, 0.1);
+            pointer-events: auto;
+        }
+
+        @keyframes smokeAppear {
+            0% { 
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+                filter: blur(10px);
+            }
+            100% { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .welcome-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            animation: smokeFloat 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes smokeFloat {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10px, -10px); }
+        }
+
+        .welcome-box h1 {
+            font-size: 2.5rem;
+            color: #c9a961;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d4c5a9;
+            margin-bottom: 15px;
+        }
+
+        .welcome-hint {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(201, 169, 97, 0.3);
+            font-style: italic;
+            color: #a39274;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: modalFadeIn 0.4s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #2a2218 0%, #1a1510 100%);
+            border: 3px solid #c9a961;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(201, 169, 97, 0.3);
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: scale(0.8) translateY(50px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #c9a961;
+            transition: transform 0.3s;
+            background: none;
+            border: none;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal h2 {
+            color: #c9a961;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .modal p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .modal ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .modal li {
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 40px;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            text-align: center;
+            color: #a39274;
+            font-size: 0.9rem;
+            z-index: 100;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .background-image {
+                width: 95%;
+            }
+
+            .welcome-box {
+                padding: 30px 40px;
+                max-width: 90%;
+            }
+
+            .welcome-box h1 {
+                font-size: 2rem;
+            }
+
+            .welcome-box p {
+                font-size: 1rem;
+            }
+
+            .hotspot {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">JGC Studio - Portfolio Narratif</div>
+        <nav>
+            <a href="#accueil" onclick="showWelcome(event)">Accueil</a>
+            <a href="#about">À Propos</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Overlay -->
+    <div class="welcome-overlay" onclick="hideWelcome(event)">
+        <div class="welcome-box" onclick="event.stopPropagation()">
+            <h1>Bienvenue</h1>
+            <p>Je suis <strong>Fantac Cissé</strong>, créateur d'expériences numériques immersives chez <strong>JGC Studio</strong>.</p>
+            <p>Entrez dans mon univers où design, technologie et storytelling se rencontrent.</p>
+            <p class="welcome-hint">✨ Cliquez sur les objets qui s'illuminent pour découvrir mon histoire...</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <img src="desktopmain.png" alt="Le Bureau" class="background-image" id="mainImage">
+        
+        <!-- Interactive Hotspots -->
+        <div class="hotspot hotspot-book" onclick="openModal('book')" title="Bibliothèque"></div>
+        <div class="hotspot hotspot-lamp" onclick="openModal('lamp')" title="La Lampe"></div>
+        <div class="hotspot hotspot-tea" onclick="openModal('tea')" title="Tasse de Thé"></div>
+        <div class="hotspot hotspot-mic" onclick="openModal('mic')" title="Le Microphone"></div>
+        <div class="hotspot hotspot-frame" onclick="openModal('frame')" title="Mon Histoire"></div>
+        <div class="hotspot hotspot-laptop" onclick="openModal('laptop')" title="Mon Ordinateur"></div>
+        <div class="hotspot hotspot-typewriter" onclick="openModal('typewriter')" title="Machine à Écrire"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2024 JGC Studio - Fantac Cissé | Tous droits réservés
+    </footer>
+
+    <script>
+        // Modal content
+        const modalContent = {
+            laptop: {
+                title: "💻 Mon Espace de Création",
+                content: `<p style="margin-bottom: 15px;">C'est ici que naissent toutes mes créations numériques. Mon ordinateur est bien plus qu'un outil, c'est une porte vers l'infini des possibilités créatives.</p>
+                
+                <p style="margin-bottom: 15px;"><strong>Mes compétences techniques :</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>🎨 <strong>Design UI/UX</strong> : Figma, Adobe XD, Sketch</li>
+                    <li>💻 <strong>Développement Web</strong> : HTML5, CSS3, JavaScript, React.js</li>
+                    <li>✨ <strong>Animation</strong> : GSAP, Three.js, WebGL</li>
+                    <li>🎬 <strong>Motion Design</strong> : After Effects, Premiere Pro</li>
+                </ul>
+                
+                <p style="color: #c9a961;">⚡ Des heures de création transformées en expériences mémorables</p>`
+            },
+            mic: {
+                title: "🎙️ La Voix de Mes Projets",
+                content: `<p style="margin-bottom: 15px;">Ce microphone symbolise l'importance de la communication dans mon travail. Chaque projet a sa propre voix, sa propre histoire à raconter.</p>
+                
+                <p style="margin-bottom: 15px;"><strong>Services de Production Audio/Vidéo :</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>🎥 Production vidéo corporate</li>
+                    <li>🎬 Motion design et animation</li>
+                    <li>🎵 Design sonore et mixage</li>
+                    <li>📺 Contenus pour réseaux sociaux</li>
+                </ul>
+                
+                <p style="margin-bottom: 15px;">Que ce soit pour des vidéos promotionnelles, des explainers animés ou du contenu social media, je donne vie aux messages de mes clients.</p>
+                
+                <p style="color: #c9a961;">👁️ 2M+ vues cumulées sur mes projets vidéo</p>`
+            },
+            typewriter: {
+                title: "⌨️ L'Art du Storytelling",
+                content: `<p style="margin-bottom: 15px;">Cette machine à écrire vintage représente ma passion pour le storytelling. Dans le monde digital, raconter une histoire captivante est ce qui fait la différence.</p>
+                
+                <p style="margin-bottom: 15px;"><strong>Ma philosophie narrative :</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>📖 Chaque projet raconte une histoire unique</li>
+                    <li>✨ L'expérience utilisateur avant tout</li>
+                    <li>🎭 Créer l'émotion à travers le design</li>
+                    <li>🔮 Le mystère comme moteur d'exploration</li>
+                </ul>
+                
+                <p style="margin-bottom: 15px;">Ce portfolio lui-même est une démonstration de cette approche : chaque interaction révèle un nouveau chapitre de mon histoire professionnelle.</p>
+                
+                <p style="color: #c9a961;">"L'art véritable se cache dans les détails que personne ne cherche."</p>`
+            },
+            book: {
+                title: "📚 Ma Bibliothèque de Savoirs",
+                content: `<p style="margin-bottom: 15px;">Cette bibliothèque représente l'accumulation de connaissances et d'expériences qui nourrissent ma créativité.</p>
+                
+                <p style="margin-bottom: 15px;"><strong>Domaines d'expertise :</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>📐 Design thinking & méthodologies créatives</li>
+                    <li>💡 Innovation & recherche UX</li>
+                    <li>🎨 Théorie des couleurs & composition</li>
+                    <li>📱 Responsive design & accessibilité</li>
+                    <li>🔧 Architecture de l'information</li>
+                </ul>
+                
+                <p style="margin-bottom: 15px;">Chaque livre représente une compétence acquise, un projet complété, une leçon apprise. La connaissance est le fondement de toute création significative.</p>
+                
+                <p style="color: #c9a961;">📖 Formation continue & veille technologique constante</p>`
+            },
+            tea: {
+                title: "☕ Moments de Réflexion",
+                content: `<p style="margin-bottom: 15px;">Cette tasse de thé symbolise les moments de pause créative, essentiels à tout processus de création.</p>
+                
+                <p style="margin-bottom: 15px;"><strong>Ma philosophie de travail :</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>🧘 L'équilibre entre action et réflexion</li>
+                    <li>💭 Les meilleures idées naissent dans le calme</li>
+                    <li>🎯 Focus et présence dans chaque projet</li>
+                    <li>🌱 Croissance continue et apprentissage</li>
+                </ul>
+                
+                <p style="margin-bottom: 15px;">Derrière chaque grand projet se cachent des heures de réflexion, d'itération et de perfectionnement. La qualité demande du temps et de l'attention.</p>
+                
+                <p style="color: #c9a961;">✨ "La créativité exige du courage et de la patience"</p>`
+            },
+            frame: {
+                title: "🖼️ Fantac Cissé - Mon Histoire",
+                content: `<p style="margin-bottom: 15px;">Bienvenue dans mon univers créatif. Je suis <strong>Fantac Cissé</strong>, créateur d'expériences numériques immersives et fondateur de <strong>JGC Studio</strong>.</p>
+                
+                <p style="margin-bottom: 20px;"><strong>🎯 Ma Mission</strong></p>
+                <p style="margin-bottom: 15px;">Transformer des idées complexes en expériences digitales élégantes et mémorables. Je crois que chaque projet mérite une approche narrative unique où design, technologie et storytelling se rencontrent.</p>
+                
+                <p style="margin-bottom: 20px;"><strong>🌟 Mon Parcours</strong></p>
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2024 - Présent</strong></p>
+                    <p style="margin-bottom: 15px;"><strong>Fondateur & Directeur Créatif</strong> - JGC Studio<br>
+                    Création d'expériences numériques immersives et narratives sur mesure. Spécialisation en design UI/UX, développement frontend et storytelling digital.</p>
+                </div>
+                
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2022 - 2024</strong></p>
+                    <p style="margin-bottom: 15px;"><strong>Senior UI/UX Designer & Developer</strong><br>
+                    Lead designer sur projets clients majeurs. Développement de design systems complexes et d'interfaces interactives.</p>
+                </div>
+                
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2020 - 2022</strong></p>
+                    <p style="margin-bottom: 15px;"><strong>Frontend Developer</strong><br>
+                    Développement d'applications web React. Focus sur la performance et l'expérience utilisateur.</p>
+                </div>
+                
+                <p style="margin-bottom: 20px;"><strong>💡 Ma Philosophie</strong></p>
+                <p style="margin-bottom: 15px;">Je ne crée pas simplement des sites web ou des applications. Je construis des univers à explorer, des histoires à découvrir. Chaque projet est une invitation au voyage, une expérience qui engage et inspire.</p>
+                
+                <p style="margin-bottom: 15px;"><em>Ce portfolio lui-même en est la preuve : plutôt qu'une simple liste de projets, c'est un bureau d'artisan où chaque objet révèle une partie de mon histoire.</em></p>
+                
+                <p style="margin-top: 25px; color: #c9a961; font-style: italic;">✨ "L'art véritable se cache dans les détails que personne ne cherche."</p>
+                
+                <p style="margin-top: 20px; text-align: center;">🎯 8+ années d'expérience | 🏆 15+ projets primés | 💼 50+ clients satisfaits</p>`
+            },
+            lamp: {
+                title: "💡 Contact & Collaboration",
+                content: `<p style="margin-bottom: 15px;">Cette lampe illumine mes projets et symbolise les idées brillantes qui naissent de nos collaborations.</p>
+                
+                <p style="margin-bottom: 15px;"><strong>Vous avez un projet en tête ?</strong></p>
+                <p style="margin-bottom: 15px;">Je serais ravi d'échanger avec vous et de donner vie à vos idées les plus audacieuses.</p>
+                
+                <p style="margin-bottom: 15px;"><strong>Services proposés :</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>✨ Design UI/UX & Prototypage</li>
+                    <li>💻 Développement Web Frontend</li>
+                    <li>🎨 Identité Visuelle & Branding</li>
+                    <li>🎬 Production Vidéo & Animation</li>
+                    <li>📱 Expériences Interactives</li>
+                </ul>
+                
+                <p style="margin-bottom: 20px;"><strong>Contactez-moi :</strong></p>
+                <p style="margin-bottom: 10px;">📧 Email : <a href="mailto:contact@jgcstudio.com" style="color: #c9a961;">contact@jgcstudio.com</a></p>
+                <p style="margin-bottom: 10px;">💼 LinkedIn : <a href="#" style="color: #c9a961;">Fantac Cissé</a></p>
+                <p style="margin-bottom: 10px;">🌐 Portfolio : <a href="#" style="color: #c9a961;">www.jgcstudio.com</a></p>
+                
+                <p style="margin-top: 25px; color: #c9a961; font-style: italic;">✨ Transformons vos idées en expériences inoubliables</p>`
+            }
+        };
+
+        // Show welcome message
+        function showWelcome(event) {
+            event.preventDefault();
+            const overlay = document.querySelector('.welcome-overlay');
+            overlay.classList.remove('hidden');
+        }
+
+        // Hide welcome message
+        function hideWelcome(event) {
+            if (event.target.classList.contains('welcome-overlay')) {
+                event.target.classList.add('hidden');
+            }
+        }
+
+        // Show hotspots after welcome disappears
+        function showHotspots() {
+            const hotspots = document.querySelectorAll('.hotspot');
+            hotspots.forEach(hotspot => {
+                hotspot.classList.add('visible');
+            });
+        }
+
+        // Auto-hide welcome message after 4 seconds on page load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.welcome-overlay').classList.add('hidden');
+                // Show hotspots after welcome message disappears
+                setTimeout(showHotspots, 800);
+            }, 4000);
+        });
+
+        // Open modal
+        function openModal(contentKey) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modalBody');
+            const content = modalContent[contentKey];
+            
+            if (content) {
+                modalBody.innerHTML = `
+                    <h2>${content.title}</h2>
+                    ${content.content}
+                `;
+                modal.classList.add('active');
+            }
+        }
+
+        // Close modal
+        function closeModal(event) {
+            if (!event || event.target.id === 'modal' || event.target.classList.contains('modal-close')) {
+                document.getElementById('modal').classList.remove('active');
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
