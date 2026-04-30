@@ -703,6 +703,38 @@
                 transform: scale(1.2);
             }
         }
+
+        /* ── Language Switcher ── */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 1px solid rgba(201, 169, 97, 0.3);
+            padding-left: 25px;
+            margin-left: 10px;
+        }
+
+        .lang-switch a {
+            font-size: 0.9rem;
+            color: #d4c5a9;
+            text-decoration: none;
+            transition: color 0.3s;
+            letter-spacing: 0.03em;
+        }
+
+        .lang-switch a:hover {
+            color: #c9a961;
+        }
+
+        .lang-switch .lang-active {
+            color: #c9a961;
+            font-weight: bold;
+        }
+
+        .lang-divider {
+            color: rgba(201, 169, 97, 0.4);
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -719,6 +751,11 @@
             <!-- CHANGEMENT: faute de frappe corrigée "Professionnel" -->
             <a href="https://fcisse-hub.github.io/Portfolio/" target="_blank">Portfolio Professionnel</a>
             <a href="#contact" onclick="openContactForm(event)">Contact</a>
+            <div class="lang-switch">
+                <a href="index.html" class="lang-active">🇫🇷 FR</a>
+                <span class="lang-divider">|</span>
+                <a href="index-en.html">EN 🇬🇧</a>
+            </div>
         </nav>
     </header>
 
@@ -991,7 +1028,7 @@
                 <p style="margin-bottom: 15px;"><strong>Ma philosophie de travail :</strong></p>
                 <ul style="margin-left: 20px; margin-bottom: 15px;">
                     <li>🧘 <strong>Le calme comme outil</strong> — Je sais adapter mon travail aussi bien dans le silence que dans l'urgence. La réflexion lente produit les décisions solides. L'urgence, par contre, ne produit chez moi, jamais de médiocrité</li>
-                    <li>🔍 <strong>La minutie comme standard</strong> — Chaque détail compte : un mot, une couleur, un timing. La qualité se cache dans ce que personne ne remarque… jusqu'au jour où elle manquante.</li>
+                    <li>🔍 <strong>La minutie comme standard</strong> — Chaque détail compte : un mot, une couleur, un timing. La qualité se cache dans ce que personne ne remarque… jusqu'au jour où elle est manquante.</li>
                     <li>🧩 <strong>Le brainstorming comme carburant</strong> — Seule, j'analyse. En équipe, j'invente. Les meilleures idées naissent quand des esprits différents se heurtent sans ego.</li>
                     <li>🌿 <strong>L'ouverture comme discipline</strong> — Je défends mes choix créatifs, mais j'écoute les autres avec la même rigueur que j'applique à mes propres idées.</li>
                 </ul>
