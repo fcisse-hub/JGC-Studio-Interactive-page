@@ -48,6 +48,16 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: #c9a961;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo img {
+            height: 1.5rem;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         nav {
@@ -177,7 +187,7 @@
             }
         }
 
-        /* Hotspot positions - Tous les hotspots fonctionnels */
+        /* Hotspot positions */
         .hotspot-book {
             top: 28%;
             left: 10%;
@@ -495,6 +505,172 @@
             z-index: 100;
         }
 
+        /* ── Contact Modal ── */
+        .contact-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: modalFadeIn 0.4s ease;
+        }
+
+        .contact-modal-overlay.active {
+            display: flex;
+        }
+
+        .contact-modal-box {
+            background: linear-gradient(135deg, #2a2218 0%, #1a1510 100%);
+            border: 3px solid #c9a961;
+            border-radius: 15px;
+            padding: 50px 55px;
+            max-width: 560px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(201, 169, 97, 0.25),
+                        inset 0 0 40px rgba(201, 169, 97, 0.05);
+        }
+
+        .contact-modal-box h3 {
+            font-size: 1.8rem;
+            color: #c9a961;
+            margin-bottom: 8px;
+            font-family: 'Georgia', serif;
+        }
+
+        .contact-modal-subtitle {
+            font-size: 0.95rem;
+            color: #a39274;
+            font-style: italic;
+            margin-bottom: 35px;
+        }
+
+        .contact-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #c9a961;
+            background: none;
+            border: none;
+            transition: transform 0.3s;
+            line-height: 1;
+        }
+
+        .contact-close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .contact-form-group {
+            margin-bottom: 22px;
+        }
+
+        .contact-form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #c9a961;
+            margin-bottom: 8px;
+        }
+
+        .contact-form-input,
+        .contact-form-textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(201, 169, 97, 0.35);
+            border-radius: 6px;
+            padding: 12px 15px;
+            color: #d4c5a9;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s, background 0.3s;
+            outline: none;
+        }
+
+        .contact-form-input::placeholder,
+        .contact-form-textarea::placeholder {
+            color: #6b5f4a;
+        }
+
+        .contact-form-input:focus,
+        .contact-form-textarea:focus {
+            border-color: #c9a961;
+            background: rgba(201, 169, 97, 0.06);
+        }
+
+        .contact-form-textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .contact-btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #c9a961 0%, #a38950 100%);
+            border: none;
+            border-radius: 6px;
+            color: #1a1510;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .contact-btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        .contact-btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .contact-form-note {
+            text-align: center;
+            color: #6b5f4a;
+            font-size: 0.82rem;
+            font-style: italic;
+            margin-top: 14px;
+        }
+
+        .contact-success-message {
+            display: none;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .contact-success-message .success-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-success-message p {
+            color: #d4c5a9;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .contact-success-message .success-highlight {
+            color: #c9a961;
+            font-style: italic;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header {
@@ -532,12 +708,17 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="logo">JGC Studio - Bureau Interactif </div>
+        <!-- CHANGEMENT: logo miniaturisé ajouté + suppression espace final -->
+        <div class="logo">
+            <img src="https://github.com/fcisse-hub/JGC-Studio-Interactive-page/blob/main/LOGO_JGC_TRANSPARENT.png?raw=true" alt="JGC Blog Logo">
+            JGC Studio - Bureau Interactif
+        </div>
         <nav>
             <a href="#accueil" onclick="showWelcome(event)">Accueil</a>
             <a href="https://journalistgeocultures.com/" target="_blank">Le Blog</a>
-            <a href="https://fcisse-hub.github.io/Portfolio/" target="_blank">Portfolio Professionel</a>
-            <a href="#contact">Contact</a>
+            <!-- CHANGEMENT: faute de frappe corrigée "Professionnel" -->
+            <a href="https://fcisse-hub.github.io/Portfolio/" target="_blank">Portfolio Professionnel</a>
+            <a href="#contact" onclick="openContactForm(event)">Contact</a>
         </nav>
     </header>
 
@@ -593,75 +774,215 @@
     </audio>
 
     <!-- Footer -->
+    <!-- CHANGEMENT: © 2024-2026 (plage de copyright, pas année de création seule) -->
     <footer>
-        © 2024 JGC Studio - Sabine F. Cissé | Tous droits réservés
+        © 2024–2026 JGC Studio - Sabine F. Cissé | Tous droits réservés
     </footer>
 
+    <!-- ══════════════════════════════════════
+         CONTACT FORM MODAL
+    ══════════════════════════════════════ -->
+    <div id="contactModal" class="contact-modal-overlay" onclick="handleContactOverlayClick(event)">
+        <div class="contact-modal-box">
+            <button class="contact-close-btn" onclick="closeContactForm()" aria-label="Fermer">&times;</button>
+
+            <h3>Commençons l'échange</h3>
+            <p class="contact-modal-subtitle">Partagez votre vision, je vous répondrai avec attention</p>
+
+            <form id="contactForm" action="https://formspree.io/f/xvzdoklv" method="POST" onsubmit="handleContactSubmit(event)">
+                <div class="contact-form-group">
+                    <label class="contact-form-label">Votre nom</label>
+                    <input type="text" name="name" class="contact-form-input" required placeholder="Prénom Nom" />
+                </div>
+                <div class="contact-form-group">
+                    <label class="contact-form-label">Votre email</label>
+                    <input type="email" name="email" class="contact-form-input" required placeholder="votre@email.com" />
+                </div>
+                <div class="contact-form-group">
+                    <label class="contact-form-label">Votre message</label>
+                    <textarea name="message" class="contact-form-textarea" required placeholder="Parlez-moi de votre projet, de vos ambitions, de ce qui vous anime..."></textarea>
+                </div>
+                <button type="submit" class="contact-btn-submit" id="contactSubmitBtn">
+                    Envoyer le message
+                </button>
+                <p class="contact-form-note">Réponse garantie sous 48 heures</p>
+            </form>
+
+            <div class="contact-success-message" id="contactSuccess">
+                <div class="success-icon">✉️</div>
+                <p><strong style="color: #c9a961;">Message envoyé avec succès !</strong></p>
+                <p>Merci pour votre message.</p>
+                <p class="success-highlight">Je vous répondrai dans les 48 heures.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Modal content
+        // ── Contact Form ──
+        function openContactForm(event) {
+            if (event) event.preventDefault();
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactForm() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = '';
+            // Reset form if success was shown
+            setTimeout(() => {
+                document.getElementById('contactSuccess').style.display = 'none';
+                document.getElementById('contactForm').style.display = 'block';
+                document.getElementById('contactForm').reset();
+                const btn = document.getElementById('contactSubmitBtn');
+                btn.disabled = false;
+                btn.textContent = 'Envoyer le message';
+            }, 400);
+        }
+
+        function handleContactOverlayClick(event) {
+            if (event.target.id === 'contactModal') {
+                closeContactForm();
+            }
+        }
+
+        async function handleContactSubmit(event) {
+            event.preventDefault();
+            const btn = document.getElementById('contactSubmitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Envoi en cours...';
+
+            try {
+                const response = await fetch(event.target.action, {
+                    method: 'POST',
+                    body: new FormData(event.target),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('contactSuccess').style.display = 'block';
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = 'Réessayer';
+                    alert('Une erreur est survenue. Veuillez réessayer ou écrire directement à jgcultures@gmail.com');
+                }
+            } catch (error) {
+                btn.disabled = false;
+                btn.textContent = 'Réessayer';
+                alert('Connexion impossible. Écrivez-moi à jgcultures@gmail.com');
+            }
+        }
+
+        // Close contact modal on Escape (in addition to existing modal close)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('contactModal').classList.contains('active')) {
+                closeContactForm();
+            }
+        });
+    </script>
+
+
         const modalContent = {
+
+            // ─────────────────────────────────────────────────────────────
+            // CHANGEMENT: stack technique réel remplacé (suppression Adobe XD,
+            // Sketch, GSAP, Three.js, WebGL — ajout DaVinci, Premiere Pro,
+            // Remotion, Jitter, After Effects, ffmpeg, Whisper, GitHub Pages)
+            // ─────────────────────────────────────────────────────────────
             laptop: {
                 title: "💻 Mon Espace de Création",
-                content: `<p style="margin-bottom: 15px;">C'est ici que naissent toutes mes créations numériques. Mon ordinateur est bien plus qu'un outil, c'est une porte vers l'infini des possibilités créatives.</p>
+                content: `<p style="margin-bottom: 15px;">C'est ici que naissent toutes mes créations numériques. Mon ordinateur est le carrefour entre l'édition, le motion design et la stratégie de contenu.</p>
                 
-                <p style="margin-bottom: 15px;"><strong>Mes compétences techniques :</strong></p>
+                <p style="margin-bottom: 15px;"><strong>Mon stack technique :</strong></p>
                 <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>🎨 <strong>Design UI/UX</strong> : Figma, Adobe XD, Sketch</li>
-                    <li>💻 <strong>Développement Web</strong> : HTML5, CSS3, JavaScript, React.js</li>
-                    <li>✨ <strong>Animation</strong> : GSAP, Three.js, WebGL</li>
-                    <li>🎬 <strong>Motion Design</strong> : After Effects, Premiere Pro</li>
+                    <li>🎬 <strong>Montage vidéo</strong> : DaVinci Resolve, Premiere Pro</li>
+                    <li>✨ <strong>Motion design</strong> : After Effects, Remotion (React), Jitter</li>
+                    <li>🎙️ <strong>Audio & sous-titres</strong> : Whisper (génération SRT), ffmpeg</li>
+                    <li>🌐 <strong>Développement web</strong> : HTML5, CSS3, JavaScript</li>
+                    <li>🚀 <strong>Déploiement</strong> : GitHub Pages, Netlify</li>
+                    <li>🎨 <strong>Design & prototypage</strong> : Figma</li>
+                    <li>🤖 <strong>B-roll & IA vidéo</strong> : VideoGen</li>
                 </ul>
                 
-                <p style="color: #c9a961;">⚡ Des heures de création transformées en expériences mémorables</p>`
+                <p style="color: #c9a961;">⚡ Chaque outil est au service d'une intention éditoriale et narrative précise.</p>`
             },
+
+            // ─────────────────────────────────────────────────────────────
+            // CHANGEMENT: contenu mic entièrement réécrit — podcast, voix off,
+            // bilingual workflow, liens sociaux réels (YouTube, TikTok, Instagram)
+            // Suppression "2M+ vues cumulées" (non vérifiable)
+            // ─────────────────────────────────────────────────────────────
             mic: {
-                title: "🎙️ La Voix de Mes Projets",
-                content: `<p style="margin-bottom: 15px;">Ce microphone symbolise l'importance de la communication dans mon travail. Chaque projet a sa propre voix, sa propre histoire à raconter.</p>
+                title: "🎙️ La Voix de JGC",
+                content: `<p style="margin-bottom: 15px;">Le microphone est au cœur de mon projet éditorial et transmédiatique. La voix est le vecteur de tout : culture, fiction, réflexion.</p>
                 
-                <p style="margin-bottom: 15px;"><strong>Services de Production Audio/Vidéo :</strong></p>
+                <p style="margin-bottom: 15px;"><strong>Productions audio & vidéo :</strong></p>
                 <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>🎥 Production vidéo corporate</li>
-                    <li>🎬 Motion design et animation</li>
-                    <li>🎵 Design sonore et mixage</li>
-                    <li>📺 Contenus pour réseaux sociaux</li>
+                    <li>🎧 <strong>Podcast — Cultural Thoughts</strong> : lectures audio des articles longue forme du JGC Blog (essais, réflexions, culture & lifestyle)</li>
+                    <li>📻 <strong>Podfic — Chronicle of Evana</strong> : fiction audio sérielle en 6 épisodes, adaptée des Chroniques d'Evana</li>
+                    <li>🎬 <strong>Contenus vidéo bilingues</strong> : sous-titres FR/EN intégrés via workflow Whisper + Premiere Pro</li>
+                    <li>📱 <strong>Social media</strong> : création de contenus courts pour TikTok, Instagram Reels et YouTube Shorts</li>
                 </ul>
                 
-                <p style="margin-bottom: 15px;">Que ce soit pour des vidéos promotionnelles, des explainers animés ou du contenu social media, je donne vie aux messages de mes clients.</p>
+                <p style="margin-bottom: 15px;"><strong>Retrouvez les JGC en vidéo :</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>▶️ <a href="https://www.youtube.com/@Journalistgeocultures" target="_blank" style="color: #c9a961;">YouTube — @Journalistgeocultures</a></li>
+                    <li>🎵 <a href="https://www.tiktok.com/@journalistgeoculturesoff" target="_blank" style="color: #c9a961;">TikTok — @journalistgeoculturesoff</a></li>
+                    <li>📸 <a href="https://www.instagram.com/journalistgeoculturesoff/" target="_blank" style="color: #c9a961;">Instagram — @journalistgeoculturesoff</a></li>
+                </ul>
                 
-                <p style="color: #c9a961;">👁️ 2M+ vues cumulées sur mes projets vidéo</p>`
+                <p style="color: #c9a961; font-style: italic;">✨ "Chaque histoire mérite d'être entendue."</p>`
             },
+
+            // ─────────────────────────────────────────────────────────────
+            // CHANGEMENT: From Page to Stage + Chronicle of Evana intégrés
+            // Suppression du contenu philosophique générique
+            // ─────────────────────────────────────────────────────────────
             typewriter: {
-                title: "⌨️ L'Art du Storytelling",
-                content: `<p style="margin-bottom: 15px;">Cette machine à écrire vintage représente ma passion pour le storytelling. Dans le monde digital, raconter une histoire captivante est ce qui fait la différence.</p>
+                title: "⌨️ From Page to Stage",
+                content: `<p style="margin-bottom: 15px;">Cette machine à écrire est le symbole de mon projet transmédiatique : <strong>From Page to Stage</strong>. Tout part du texte. Tout revient au texte.</p>
                 
-                <p style="margin-bottom: 15px;"><strong>Ma philosophie narrative :</strong></p>
+                <p style="margin-bottom: 15px;"><strong>Une stratégie narrative en quatre actes :</strong></p>
                 <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>📖 Chaque projet raconte une histoire unique</li>
-                    <li>✨ L'expérience utilisateur avant tout</li>
-                    <li>🎭 Créer l'émotion à travers le design</li>
-                    <li>🔮 Le mystère comme moteur d'exploration</li>
+                    <li>📝 <strong>La Page</strong> — Le JGC Blog, archive éditoriale depuis 2015. Essais, analyses culturelles, réflexions sur l'écriture et la vie créative.</li>
+                    <li>🎙️ <strong>La Voix</strong> — Les podcasts donnent corps aux textes : Cultural Thoughts (articles lus) et Chronicle of Evana (fiction audio sérielle).</li>
+                    <li>🎬 <strong>L'Image</strong> — YouTube, TikTok et Instagram prolongent l'univers en motion design et vidéo, dans une direction artistique Dark Academia cohérente.</li>
+                    <li>🌍 <strong>La Scène</strong> — L'horizon final : la publication du roman <em>Les Chroniques d'Evana</em>, aboutissement de tout l'écosystème narratif.</li>
                 </ul>
                 
-                <p style="margin-bottom: 15px;">La page web interactive de JGC Studio est elle-même est une démonstration de cette approche : chaque interaction révèle un nouveau chapitre de mon histoire professionnelle.</p>
+                <p style="margin-bottom: 15px;"><strong>Chronicle of Evana</strong> — une fiction transmédia en cours de production :</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Épisode 1 : La naissance (sortie prévue fin juillet)</li>
+                    <li>Épisode 2 : Un lundi chez Mme Anderson</li>
+                    <li>Épisode 3 : Décembre et le premier amour</li>
+                    <li>Épisode 4 : Après la mort de Tobias</li>
+                    <li>Épisode 5 : "Le monde est si beau."</li>
+                    <li>Épisode 6 : Anacortes, nouveau commencement</li>
+                </ul>
                 
-                <p style="color: #c9a961;">"L'art véritable se cache dans les détails que personne ne cherche."</p>`
+                <p style="color: #c9a961; font-style: italic;">"L'art véritable se cache dans les détails que personne ne cherche."</p>`
             },
+
+            // ─────────────────────────────────────────────────────────────
+            // CHANGEMENT: contenu book réécrit avec compétences réelles —
+            // édition internationale, stratégie éditoriale, direction artistique,
+            // Google UX Design (module 1 validé, en cours), écriture créative
+            // ─────────────────────────────────────────────────────────────
             book: {
                 title: "📚 Ma Bibliothèque de Savoirs",
-                content: `<p style="margin-bottom: 15px;">Cette bibliothèque représente l'accumulation de connaissances et d'expériences qui nourrissent ma créativité.</p>
+                content: `<p style="margin-bottom: 15px;">Cette bibliothèque représente dix ans d'expérience accumulée et une formation continue en constante évolution.</p>
                 
-                <p style="margin-bottom: 15px;"><strong>Mes Domaines d'Expertise :</strong></p>
+                <p style="margin-bottom: 15px;"><strong>Mes domaines d'expertise :</strong></p>
                 <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>📐 Design thinking & méthodologies créatives</li>
-                    <li>💡 Innovation & recherche UX</li>
-                    <li>🎨 Théorie des couleurs & composition</li>
-                    <li>📱 Responsive design & accessibilité</li>
-                    <li>🔧 Architecture de l'information</li>
+                    <li>🌐 <strong>Édition multimédia internationale</strong> : 10 ans de gestion de flux éditoriaux multilingues (AFP, ANSA, VWD, NTB, Ritzau, Interfax) pour des clients CAC40 et Forbes 50</li>
+                    <li>✍️ <strong>Stratégie éditoriale & SEO</strong> : architecture de contenu, calendrier éditorial, optimisation pour la diffusion internationale (JGC Blog, 2015–présent)</li>
+                    <li>🎨 <strong>Direction artistique</strong> : identité visuelle Dark Academia, cohérence graphique multiplateforme (JGC Studio)</li>
+                    <li>🔬 <strong>UX Design</strong> : Google UX Design Certificate — Module 1 validé, parcours complet en cours</li>
+                    <li>🖋️ <strong>Écriture créative & narrative</strong> : fiction longue forme, essais, podfic, storytelling transmédiatique</li>
+                    <li>🔧 <strong>Veille technologique</strong> : apprentissage continu des outils de création numérique, IA générative, motion design</li>
                 </ul>
                 
-                <p style="margin-bottom: 15px;">Chaque livre est la métaphore d'une compétence acquise, un projet complété, une leçon apprise. La connaissance est le fondement de toute création significative.</p>
-                
-                <p style="color: #c9a961;">📖 Formation continue & veille technologique constante</p>`
+                <p style="color: #c9a961;">📖 La connaissance n'est jamais terminée — elle se construit, se documente, se partage.</p>`
             },
             tea: {
                 title: "☕ Moments de Réflexion",
@@ -679,60 +1000,69 @@
                 
                 <p style="color: #c9a961;">✨ "La créativité exige du courage et de la patience"</p>`
             },
-frame: {
-    title: "Sabine F. Cissé",
-    content: `<p style="margin-bottom: 20px;">Éditrice multimédia senior, motion designer, directrice artistique.</p>
+
+            // ─────────────────────────────────────────────────────────────
+            // CHANGEMENT: Business Wire "2015 - Janvier 2026" (corrigé)
+            // ─────────────────────────────────────────────────────────────
+            frame: {
+                title: "Sabine F. Cissé",
+                content: `<p style="margin-bottom: 20px;">Éditrice multimédia senior, motion designer, directrice artistique.</p>
     
-    <p style="margin-bottom: 25px;"><strong>Mon parcours</strong></p>
-    
-    <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
-        <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2015 - Présent</strong></p>
-        <p style="margin-bottom: 15px;"><strong>Éditrice Multimédia Senior</strong> - Business Wire<br>
-        Distribution de contenu multimedia pour clients internationaux. Contrôle qualité éditorial, optimisation SEO, gestion de flux AFP, ANSA, VWD, NTB et autres fils d'agences. Workflows multilingues et édition technique de contenus corporate.</p>
-    </div>
-    
-    <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
-        <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2015 - Présent</strong></p>
-        <p style="margin-bottom: 15px;"><strong>Fondatrice</strong> - JGC Blog (Journalist GeoCultures)<br>
-        Blog d'analyse littéraire et culturelle. Archives depuis 2015.</p>
-    </div>
-    
-    <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
-        <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2024 - Présent</strong></p>
-        <p style="margin-bottom: 15px;"><strong>Motion Designer Senior & Directrice Artistique</strong> - JGC Studio<br>
-        Création de contenu : blog littéraire et culturel, motion design, stratégie narrative transmédia. Projet "From Page to Stage" autour de Chronicle of Evana. Direction artistique Dark & Light Academia. Production vidéo TikTok et YouTube, développement podcast.</p>
-    </div>
-    
-    <p style="margin-bottom: 25px; margin-top: 30px;"><strong>Compétences</strong></p>
-    <p style="margin-bottom: 15px;">Édition multimédia | Motion design | Direction artistique | Stratégie de contenu | Production audiovisuelle | Gestion de projets éditoriaux internationaux</p>
-    
-    <p style="margin-top: 30px; font-style: italic; color: #a39274;">10 années d'expérience | Business Wire + projets créatifs professionnels</p>
-    
-    <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(201, 169, 97, 0.3); text-align: center;">
-        <a href="https://fcisse-hub.github.io/Portfolio/" target="_blank" style="color: #c9a961; text-decoration: none; margin-right: 20px; font-weight: bold;">→ Portfolio professionnel</a>
-        <a href="https://www.linkedin.com/in/sabinecisse/" target="_blank" style="color: #c9a961; text-decoration: none; font-weight: bold;">→ LinkedIn</a>
-    </p>`
-},
+                <p style="margin-bottom: 25px;"><strong>Mon parcours</strong></p>
+                
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2015 - Janvier 2026</strong></p>
+                    <p style="margin-bottom: 15px;"><strong>Éditrice Multimédia Senior</strong> - Business Wire<br>
+                    Distribution de contenu multimédia pour clients internationaux. Contrôle qualité éditorial, optimisation SEO, gestion de flux AFP, ANSA, VWD, NTB et autres fils d'agences. Workflows multilingues et édition technique de contenus corporate.</p>
+                </div>
+                
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2015 - Présent</strong></p>
+                    <p style="margin-bottom: 15px;"><strong>Fondatrice</strong> - JGC Blog (Journalist GeoCultures)<br>
+                    Blog d'analyse littéraire et culturelle. Archives depuis 2015.</p>
+                </div>
+                
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2024 - Présent</strong></p>
+                    <p style="margin-bottom: 15px;"><strong>Motion Designer Senior & Directrice Artistique</strong> - JGC Studio<br>
+                    Création de contenu : blog littéraire et culturel, motion design, stratégie narrative transmédia. Projet "From Page to Stage" autour de Chronicle of Evana. Direction artistique Dark & Light Academia. Production vidéo TikTok et YouTube, développement podcast.</p>
+                </div>
+                
+                <p style="margin-bottom: 25px; margin-top: 30px;"><strong>Compétences</strong></p>
+                <p style="margin-bottom: 15px;">Édition multimédia | Motion design | Direction artistique | Stratégie de contenu | Production audiovisuelle | Gestion de projets éditoriaux internationaux</p>
+                
+                <p style="margin-top: 30px; font-style: italic; color: #a39274;">10 années d'expérience | Business Wire + projets créatifs professionnels</p>
+                
+                <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(201, 169, 97, 0.3); text-align: center;">
+                    <a href="https://fcisse-hub.github.io/Portfolio/" target="_blank" style="color: #c9a961; text-decoration: none; margin-right: 20px; font-weight: bold;">→ Portfolio professionnel</a>
+                    <a href="https://www.linkedin.com/in/sabinecisse/" target="_blank" style="color: #c9a961; text-decoration: none; font-weight: bold;">→ LinkedIn</a>
+                </p>`
+            },
+
+            // ─────────────────────────────────────────────────────────────
+            // CHANGEMENT: email réel + liens LinkedIn et Portfolio corrigés
+            // Suppression des href="#" et du placeholder email
+            // ─────────────────────────────────────────────────────────────
             lamp: {
                 title: "💡 Contact & Collaboration",
                 content: `<p style="margin-bottom: 15px;">Cette lampe illumine mes projets et symbolise les idées brillantes qui naissent de nos collaborations.</p>
                 
                 <p style="margin-bottom: 15px;"><strong>Vous avez un projet en tête ?</strong></p>
-                <p style="margin-bottom: 15px;">Je serais ravi d'échanger avec vous et de donner vie à vos idées les plus audacieuses.</p>
+                <p style="margin-bottom: 15px;">Je serais ravie d'échanger avec vous et de donner vie à vos idées les plus audacieuses.</p>
                 
                 <p style="margin-bottom: 15px;"><strong>Services proposés :</strong></p>
                 <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>✨ Design UI/UX & Prototypage</li>
-                    <li>💻 Développement Web Frontend</li>
-                    <li>🎨 Identité Visuelle & Branding</li>
-                    <li>🎬 Production Vidéo & Animation</li>
-                    <li>📱 Expériences Interactives</li>
+                    <li>✨ Direction artistique & identité visuelle</li>
+                    <li>🎬 Production vidéo & motion design</li>
+                    <li>🎨 Stratégie de contenu & édition multimédia</li>
+                    <li>🎙️ Production podcast & contenu audio</li>
+                    <li>🌐 Développement web front-end</li>
                 </ul>
                 
-                <p style="margin-bottom: 20px;"><strong>Contactez-moi :</strong></p>
-                <p style="margin-bottom: 10px;">📧 Email : <a href="mailto:contact@jgcstudio.com" style="color: #c9a961;">contact@jgcstudio.com</a></p>
-                <p style="margin-bottom: 10px;">💼 LinkedIn : <a href="#" style="color: #c9a961;">Sabine F. Cissé</a></p>
-                <p style="margin-bottom: 10px;">🌐 Portfolio : <a href="#" style="color: #c9a961;">www.jgcstudio.com</a></p>
+                <p style="margin-bottom: 20px;"><strong>Me contacter :</strong></p>
+                <p style="margin-bottom: 10px;">📧 Email : <a href="mailto:jgcultures@gmail.com" style="color: #c9a961;">jgcultures@gmail.com</a></p>
+                <p style="margin-bottom: 10px;">💼 LinkedIn : <a href="https://www.linkedin.com/in/sabinecisse" target="_blank" style="color: #c9a961;">Sabine F. Cissé</a></p>
+                <p style="margin-bottom: 10px;">🌐 Portfolio : <a href="https://fcisse-hub.github.io/Portfolio/" target="_blank" style="color: #c9a961;">fcisse-hub.github.io/Portfolio</a></p>
                 
                 <p style="margin-top: 25px; color: #c9a961; font-style: italic;">✨ Transformons vos idées en expériences inoubliables</p>`
             }
@@ -821,7 +1151,7 @@ frame: {
             }
         }
 
-        // Volume control (optional - baisse à 50% par défaut)
+        // Volume control
         bgMusic.volume = 0.5;
 
         // Autoplay désactivé par défaut (respect des navigateurs)
@@ -830,4 +1160,3 @@ frame: {
     </script>
 </body>
 </html>
-    
