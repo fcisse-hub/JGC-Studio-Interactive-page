@@ -856,10 +856,16 @@
 
     <script>
         // ── Contact Form ──
-        function openContactForm(event) {
+        function openContactForm(event, prefill) {
             if (event) event.preventDefault();
             document.getElementById('contactModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+            if (prefill) {
+                var textarea = document.querySelector('#contactForm textarea[name="message"]');
+                if (textarea && !textarea.value) {
+                    textarea.value = prefill;
+                }
+            }
         }
 
         function closeContactForm() {
@@ -1082,7 +1088,11 @@
             // ─────────────────────────────────────────────────────────────
             lamp: {
                 title: "💡 Contact & Collaboration",
-                content: `<p style="margin-bottom: 15px;">Cette lampe illumine mes projets et symbolise les idées brillantes qui naissent de nos collaborations.</p>
+                content: `<div style="background: linear-gradient(135deg, rgba(201,169,97,0.15) 0%, rgba(61,40,23,0.6) 100%); border: 2px solid #c9a961; border-left: 5px solid #c9a961; padding: 18px 20px; margin-bottom: 22px; text-align: center;">
+                    <p style="font-family: Georgia, serif; font-size: 1.05rem; font-weight: bold; color: #c9a961; margin-bottom: 6px; letter-spacing: 0.04em;">✦ Uniquement par invitation pour la période actuelle ✦</p>
+                    <p style="font-size: 0.95rem; color: #d4c5a9; margin: 0;">Carnet de commandes complet jusqu'à la rentrée 2026.<br>Pour discuter d'un projet futur, écrivez-moi via le formulaire ci-dessous.</p>
+                </div>
+                <p style="margin-bottom: 15px;">Cette lampe illumine mes projets et symbolise les idées brillantes qui naissent de nos collaborations.</p>
                 
                 <p style="margin-bottom: 15px;"><strong>Vous avez un projet en tête ?</strong></p>
                 <p style="margin-bottom: 15px;">Je serais ravie d'échanger avec vous et de donner vie à vos idées les plus audacieuses.</p>
@@ -1101,7 +1111,10 @@
                 <p style="margin-bottom: 10px;">💼 LinkedIn : <a href="https://www.linkedin.com/in/sabinecisse" target="_blank" style="color: #c9a961;">Sabine F. Cissé</a></p>
                 <p style="margin-bottom: 10px;">🌐 Portfolio : <a href="https://fcisse-hub.github.io/Portfolio/" target="_blank" style="color: #c9a961;">fcisse-hub.github.io/Portfolio</a></p>
                 
-                <p style="margin-top: 25px; color: #c9a961; font-style: italic;">✨ Transformons vos idées en expériences inoubliables</p>`
+                <div style="margin-top: 25px; text-align: center;">
+                    <button onclick="closeModal(); setTimeout(() => openContactForm(null, 'Bonjour Sabine,\n\nJe souhaite vous contacter concernant un projet futur…'), 200);" style="background: linear-gradient(135deg, #c9a961 0%, #a38950 100%); border: none; color: #1a1510; font-family: Georgia, serif; font-size: 0.95rem; font-weight: bold; padding: 12px 28px; cursor: pointer; letter-spacing: 0.05em; transition: all 0.3s;">✉️ M'écrire via le formulaire</button>
+                </div>
+                <p style="margin-top: 16px; color: #c9a961; font-style: italic; text-align: center;">✨ Transformons vos idées en expériences inoubliables</p>`
             }
         };
 
