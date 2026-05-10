@@ -1112,7 +1112,7 @@
                 <p style="margin-bottom: 10px;">🌐 Portfolio : <a href="https://fcisse-hub.github.io/Portfolio/" target="_blank" style="color: #c9a961;">fcisse-hub.github.io/Portfolio</a></p>
                 
                 <div style="margin-top: 25px; text-align: center;">
-                    <button onclick="document.getElementById('modal').classList.remove('active'); document.body.style.overflow=''; setTimeout(function(){ openContactForm(null, 'Bonjour Sabine,\n\nJe souhaite vous contacter concernant un projet futur…'); }, 250);" style="background: linear-gradient(135deg, #c9a961 0%, #a38950 100%); border: none; color: #1a1510; font-family: Georgia, serif; font-size: 0.95rem; font-weight: bold; padding: 12px 28px; cursor: pointer; letter-spacing: 0.05em; transition: all 0.3s;">✉️ M'écrire via le formulaire</button>
+                    <button onclick="openContactFromLamp();" style="background: linear-gradient(135deg, #c9a961 0%, #a38950 100%); border: none; color: #1a1510; font-family: Georgia, serif; font-size: 0.95rem; font-weight: bold; padding: 12px 28px; cursor: pointer; letter-spacing: 0.05em; transition: all 0.3s;">✉️ M'écrire via le formulaire</button>
                 </div>
                 <p style="margin-top: 16px; color: #c9a961; font-style: italic; text-align: center;">✨ Transformons vos idées en expériences inoubliables</p>`
             }
@@ -1162,6 +1162,19 @@
                 `;
                 modal.classList.add('active');
             }
+        }
+
+        // Ouvrir le formulaire depuis le modal lamp
+        function openContactFromLamp() {
+            document.getElementById('modal').classList.remove('active');
+            setTimeout(function() {
+                document.getElementById('contactModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+                var textarea = document.querySelector('#contactForm textarea[name="message"]');
+                if (textarea && !textarea.value) {
+                    textarea.value = 'Bonjour Sabine,\n\nJe souhaite vous contacter concernant un projet futur…';
+                }
+            }, 250);
         }
 
         // Close modal
