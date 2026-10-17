@@ -313,7 +313,7 @@ MIT License - Vous êtes libre d'utiliser, modifier et distribuer ce code.
 
 - **Design Concept** : Inspiré par le site interactif de J.K. Rowling (The Rowling Library)
 - **Style Visuel** : Dark Academia aesthetic
-- **Développement** : Sabine F. Cissé avec l'assistance de Claude (Anthropic)
+- **Développement** : Sabine F. Cissé
 
 ---
 
