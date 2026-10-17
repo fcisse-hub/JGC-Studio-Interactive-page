@@ -1,4 +1,4 @@
-# 🎨 Portfolio Fantac Cissé - JGC Studio
+# 🎨 Portfolio Sabine F. Cissé - JGC Studio
 
 Portfolio interactif immersif avec une approche narrative unique inspirée du Dark Academia. Au lieu d'une simple liste de projets, ce portfolio invite les visiteurs à explorer un bureau d'artisan où chaque objet révèle une partie de l'histoire professionnelle.
 
@@ -302,7 +302,7 @@ MIT License - Vous êtes libre d'utiliser, modifier et distribuer ce code.
 
 ## 👤 Auteur
 
-**Fantac Cissé**  
+**Sabine F. Cissé**  
 📧 contact@jgcstudio.com  
 🌐 [www.jgcstudio.com](https://www.jgcstudio.com)  
 💼 [LinkedIn](https://linkedin.com/in/fantaccisse)
@@ -313,7 +313,7 @@ MIT License - Vous êtes libre d'utiliser, modifier et distribuer ce code.
 
 - **Design Concept** : Inspiré par le site interactif de J.K. Rowling (The Rowling Library)
 - **Style Visuel** : Dark Academia aesthetic
-- **Développement** : Fantac Cissé avec l'assistance de Claude (Anthropic)
+- **Développement** : Sabine F. Cissé avec l'assistance de Claude (Anthropic)
 
 ---
 
@@ -376,4 +376,4 @@ Des questions ? Des bugs ? Des suggestions ?
 
 ---
 
-Made with ❤️ and ☕ by Fantac Cissé
+Made with ❤️ and ☕ by Sabine F. Cissé
