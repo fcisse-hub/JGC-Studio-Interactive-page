@@ -764,7 +764,7 @@
         <div class="welcome-box" onclick="event.stopPropagation()">
             <h1>Welcome</h1>
             <p>I am <strong>Sabine F. Cissé</strong>, author and Creative Technologist at <strong>JGC Studio</strong>.</p>
-            <p>Enter my world where design, technology and storytelling meet.</p>
+            <p>I write, edit, design and code. Every object on this desk holds part of my work: come closer.</p>
             <p class="welcome-hint">Click on the glowing objects to discover my story...</p>
         </div>
     </div>
@@ -811,9 +811,8 @@
     </audio>
 
     <!-- Footer -->
-    <!-- CHANGEMENT: © 2024-2026 (plage de copyright, pas année de création seule) -->
     <footer>
-        © 2024–2026 JGC Studio - Sabine F. Cissé | All rights reserved
+        © 2024-2026 JGC Studio · Sabine F. Cissé · All rights reserved
     </footer>
 
     <!-- ══════════════════════════════════════
@@ -939,164 +938,66 @@
 
     <script>
         const modalContent = {
+
             laptop: {
                 title: "My Creative Space",
-                content: `<p style="margin-bottom: 15px;">This is where all my digital creations come to life. My computer is the crossroads between editing, motion design and content strategy.</p>
-                
-                <p style="margin-bottom: 15px;"><strong>My technical stack:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><strong>Video editing</strong>: DaVinci Resolve, Premiere Pro</li>
-                    <li><strong>Motion design</strong>: After Effects, Remotion (React), Jitter</li>
-                    <li><strong>Code-driven creation</strong>: code-automated After Effects, HyperFrames, p5.brush</li>
-                    <li><strong>Audio & subtitles</strong>: Audacity, Adobe Podcast, Whisper (SRT generation), ffmpeg</li>
-                    <li><strong>Web development</strong>: HTML5, CSS3, JavaScript</li>
-                    <li><strong>Deployment</strong>: GitHub Pages, WordPress</li>
-                    <li><strong>Design & prototyping</strong>: Figma, Canva</li>
-                    <li><strong>Generative AI</strong>: Runway, Adobe Firefly, VideoGen</li>
-                </ul>
-                
-                <p style="color: #c9a961;">Every tool serves a precise editorial and narrative intention.</p>`
+                content: `<p style="margin-bottom: 15px;">My computer is my workshop: editing, motion design and code meet there. Every tool serves a precise editorial intention.</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;"><li><strong>Editing</strong>: DaVinci Resolve, Premiere Pro</li><li><strong>Motion design</strong>: After Effects, Remotion, Jitter</li><li><strong>Code-driven creation</strong>: code-automated After Effects, HyperFrames, p5.brush</li><li><strong>Sound and subtitles</strong>: Audacity, Adobe Podcast, Whisper, ffmpeg</li><li><strong>Web</strong>: HTML, CSS, JavaScript, WordPress, GitHub Pages</li><li><strong>Design</strong>: Figma, Canva</li><li><strong>Generative AI</strong>: Runway, Adobe Firefly, VideoGen</li></ul>
+                <p style="color: #c9a961;">This desk itself is made of images and code.</p>`
             },
+
             mic: {
                 title: "The JGC Voice",
-                content: `<p style="margin-bottom: 15px;">The microphone is at the heart of my editorial and transmedia project. Voice is the carrier of everything: culture, fiction, reflection.</p>
-                
-                <p style="margin-bottom: 15px;"><strong>Audio & video productions:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><strong>Podcast — <em>L'Encrier de Sabine</em></strong>: audio readings of longform JGC Blog articles (essays, reflections, culture & lifestyle)</li>
-                    <li><strong>Podfic — Chronicle of Evana</strong>: 6-episode serial audio fiction, adapted from the Chronicle of Evana</li>
-                    <li><strong>Bilingual video content</strong>: FR/EN subtitles embedded via Whisper + Premiere Pro workflow</li>
-                    <li><strong>Social media</strong>: short-form content creation for TikTok, Instagram Reels and YouTube Shorts</li>
-                </ul>
-                
-                <p style="margin-bottom: 15px;"><strong>Find JGC on video:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li><a href="https://www.youtube.com/@Journalistgeocultures" target="_blank" style="color: #c9a961;">YouTube — @Journalistgeocultures</a></li>
-                    <li><a href="https://www.tiktok.com/@journalistgeoculturesoff" target="_blank" style="color: #c9a961;">TikTok — @journalistgeoculturesoff</a></li>
-                    <li><a href="https://www.instagram.com/journalistgeoculturesoff/" target="_blank" style="color: #c9a961;">Instagram — @journalistgeoculturesoff</a></li>
-                </ul>
-                
-                <p style="color: #c9a961; font-style: italic;">"Every story deserves to be heard."</p>`
+                content: `<p style="margin-bottom: 15px;">Voice carries everything I write: culture, fiction, reflection.</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;"><li><strong>L'Encrier de Sabine</strong>: podcast: readings of the JGC Blog's long-form articles.</li><li><strong>Chronicle of Evana</strong>: a six-episode audio drama.</li><li><strong>Bilingual videos</strong>: subtitled in French and English.</li><li><strong>Short formats</strong>: for TikTok, Instagram and YouTube Shorts.</li></ul>
+                <p style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(201, 169, 97, 0.3); text-align: center;"><a href="https://www.youtube.com/@Journalistgeocultures" target="_blank" style="color: #c9a961; text-decoration: none; margin: 0 10px; font-weight: bold;">→ YouTube</a> <a href="https://www.tiktok.com/@journalistgeoculturesoff" target="_blank" style="color: #c9a961; text-decoration: none; margin: 0 10px; font-weight: bold;">→ TikTok</a> <a href="https://www.instagram.com/journalistgeoculturesoff/" target="_blank" style="color: #c9a961; text-decoration: none; margin: 0 10px; font-weight: bold;">→ Instagram</a></p>
+                <p style="color: #c9a961; font-style: italic;">“Every story deserves to be heard.”</p>`
             },
+
             typewriter: {
                 title: "From Page to Stage",
-                content: `<p style="margin-bottom: 15px;">This typewriter is the symbol of my transmedia project: <strong>From Page to Stage</strong>. Everything starts with text. Everything returns to text.</p>
-                
-                <p style="margin-bottom: 15px;"><strong>A narrative strategy in four acts:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><strong>The Page</strong> — The JGC Blog, editorial archive since 2015. Essays, cultural analyses, reflections on writing and the creative life.</li>
-                    <li><strong>The Voice</strong> — Podcasts give body to texts: <em>L'Encrier de Sabine</em> (read articles) and Chronicle of Evana (serial audio fiction).</li>
-                    <li><strong>The Image</strong> — YouTube, TikTok and Instagram extend the universe through motion design and video, with a consistent Dark Academia art direction.</li>
-                    <li><strong>The Stage</strong> — The final horizon: the publication of the interactive e-book <em>Chronicle of Evana / Les Chroniques d'Evana</em>, the culmination of the entire narrative ecosystem.</li>
-                </ul>
-                
-                <p style="margin-bottom: 15px;"><strong>Chronicle of Evana / Les Chroniques d'Evana</strong> — a transmedia fiction currently in production:</p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Episode 1: Birth (coming January 2027)</li>
-                    <li>Episode 2: A Monday at Mrs Anderson's</li>
-                    <li>Episode 3: December and First Love</li>
-                    <li>Episode 4: After Tobias</li>
-                    <li>Episode 5: "The world is so lovely."</li>
-                    <li>Episode 6: Anacortes — A New Beginning</li>
-                </ul>
-                
-                <p style="color: #c9a961; font-style: italic;">"Real art takes Courage and the vulnerability of someone willing to be flayed alive by the critical eyes of others. Every creator is the magic behind the word strength." — Sabine F. Cissé</p>`
+                content: `<p style="margin-bottom: 15px;">Everything starts with text, and everything returns to it. From Page to Stage ties my projects together: a written story becomes a voice, then an image, then a stage.</p>
+                <p style="margin-bottom: 15px;"><strong>Four acts</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;"><li><strong>The page</strong>: The JGC Blog, since 2015: essays, cultural analysis, reflections on writing and the creative life.</li><li><strong>The voice</strong>: L'Encrier de Sabine, my articles read aloud, and Chronicle of Evana as audio fiction.</li><li><strong>The image</strong>: YouTube, TikTok and Instagram extend the world through motion design and video, under one art direction.</li><li><strong>The stage</strong>: The interactive e-book <em>Chronicle of Evana / Les Chroniques d'Evana</em>, where it all comes together.</li></ul>
+                <p style="margin-bottom: 15px;"><strong>Chronicle of Evana, six episodes in production</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;"><li>Episode 1: Birth (coming January 2027)</li><li>Episode 2: A Monday at Mrs Anderson's</li><li>Episode 3: December and First Love</li><li>Episode 4: After Tobias</li><li>Episode 5: “The world is so lovely.”</li><li>Episode 6: Anacortes, a New Beginning</li></ul>
+                <p style="color: #c9a961; font-style: italic;">“Real art takes Courage and the vulnerability of someone willing to be flayed alive by the critical eyes of others. Every creator is the magic behind the word strength.” Sabine F. Cissé</p>`
             },
+
             book: {
                 title: "My Library of Knowledge",
-                content: `<p style="margin-bottom: 15px;">This library represents ten years of accumulated experience and a continuously evolving education.</p>
-                
-                <p style="margin-bottom: 15px;"><strong>My areas of expertise:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><strong>International multimedia editing</strong>: 10 years managing multilingual editorial workflows (AFP, ANSA, VWD, NTB, Ritzau, Interfax) for CAC40 and Forbes 50 clients</li>
-                    <li><strong>Editorial strategy & SEO</strong>: content architecture, editorial calendar, optimisation for international distribution (JGC Blog, 2015–present)</li>
-                    <li><strong>Art direction</strong>: Dark Academia & Light Academia visual identity, cross-platform graphic consistency (JGC Studio)</li>
-                    <li><strong>UX Design</strong>: Google UX Design Certificate (in progress, 2027)</li>
-                    <li><strong>Creative & narrative writing</strong>: longform fiction, essays, podfic, transmedia storytelling</li>
-                    <li><strong>Technology watch</strong>: continuous learning of digital creation tools, generative AI, motion design</li>
-                </ul>
-                
-                <p style="color: #c9a961;"><a href="https://sabinefcisse.com/" target="_blank" style="color: #c9a961; text-decoration: underline; text-underline-offset: 3px;">Knowledge is never complete — it is built, documented and shared.</a></p>`
+                content: `<p style="margin-bottom: 15px;">Ten years of craft, and learning that never stops.</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;"><li><strong>International multimedia editing</strong>: Ten years of multilingual editorial workflows (AFP, ANSA, VWD, NTB, Ritzau, Interfax) for CAC 40 and Forbes 50 clients.</li><li><strong>Editorial strategy and SEO</strong>: Content architecture, editorial calendar, international distribution (JGC Blog, since 2015).</li><li><strong>Art direction</strong>: Dark and Light Academia identities, visual consistency across platforms (JGC Studio).</li><li><strong>UX design</strong>: Google UX Design Certificate, in progress (2027).</li><li><strong>Creative writing</strong>: Long-form fiction, essays, audio drama, transmedia storytelling.</li><li><strong>Ongoing learning</strong>: Digital creation tools, generative AI, motion design.</li></ul>
+                <p style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(201, 169, 97, 0.3); text-align: center;"><a href="https://sabinefcisse.com/" target="_blank" style="color: #c9a961; text-decoration: none; margin: 0 10px; font-weight: bold;">→ See my full background</a></p>`
             },
+
             tea: {
                 title: "Moments of Reflection",
-                content: `<p style="margin-bottom: 15px;">This cup of tea represents the way I inhabit my work: with calm, with method, and a window always open to the unexpected.</p>
-                
-                <p style="margin-bottom: 15px;"><strong>My work philosophy:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li><strong>Calm as a tool</strong> — I know how to adapt whether working in silence or under pressure. Slow reflection produces solid decisions. Pressure, however, never produces mediocrity from me.</li>
-                    <li><strong>Precision as a standard</strong> — Every detail matters: a word, a colour, a timing. Quality hides in what no one notices… until the day it is missing.</li>
-                    <li><strong>Brainstorming as fuel</strong> — Alone, I analyse. In a team, I invent. The best ideas are born when different minds clash without ego.</li>
-                    <li><strong>Openness as discipline</strong> — I stand by my creative choices, but I listen to others with the same rigour I apply to my own ideas.</li>
-                </ul>
-                
-                <p style="margin-bottom: 15px;">Behind every creation lie hours of rereading, silent iteration and deliberate questioning. No shortcuts. No "good enough".</p>
-                
-                <p style="color: #c9a961; font-style: italic;">"Creativity without discipline is a dream. Discipline without creativity is a prison."</p>`
+                content: `<p style="margin-bottom: 15px;">This cup speaks of how I work: calmly, methodically, with a window open to the unexpected.</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;"><li><strong>Calm</strong>: I work as well in silence as under pressure. Slow thinking makes sound decisions, and pressure never lowers my standards.</li><li><strong>Precision</strong>: A word, a colour, a timing: quality lives in what no one notices, until the day it is missing.</li><li><strong>Exchange</strong>: Alone, I analyse; in a team, I invent. The best ideas come when different minds meet without ego.</li><li><strong>Listening</strong>: I stand by my creative choices, and I listen to others with the same rigour.</li></ul>
+                <p style="margin-bottom: 15px;">Behind every piece lie hours of rereading and silent iteration. No shortcuts.</p>
+                <p style="color: #c9a961; font-style: italic;">“Creativity without discipline is a dream. Discipline without creativity is a prison.”</p>`
             },
+
             frame: {
                 title: "Sabine F. Cissé",
-                content: `<p style="margin-bottom: 20px;">Author, senior multimedia editor, creative technologist, art director.</p>
-    
-                <p style="margin-bottom: 25px;"><strong>My journey</strong></p>
-                
-                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
-                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2015 – January 2026</strong></p>
-                    <p style="margin-bottom: 15px;"><strong>Senior Multimedia Editor</strong> – Business Wire<br>
-                    Multimedia content distribution for international clients. Editorial quality control, SEO optimisation, management of AFP, ANSA, VWD, NTB and other agency wire feeds. Multilingual workflows and technical editing of corporate content.</p>
-                </div>
-                
-                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
-                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2015 – Present</strong></p>
-                    <p style="margin-bottom: 15px;"><strong>Founder</strong> – JGC Blog (Journalist GeoCultures)<br>
-                    Literary and cultural analysis blog. Archives since 2015.</p>
-                </div>
-                
-                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;">
-                    <p style="margin-bottom: 10px;"><strong style="color: #c9a961;">2024 – Present</strong></p>
-                    <p style="margin-bottom: 15px;"><strong>Creative Technologist & Art Director</strong> - JGC Studio<br>
-                    Content creation: literary and cultural blog, motion design, code and AI driven creation, transmedia narrative strategy. "From Page to Stage" project centred on Chronicle of Evana. Dark & Light Academia art direction. TikTok and YouTube video production, podcast development.</p>
-                </div>
-                
-                <p style="margin-bottom: 25px; margin-top: 30px;"><strong>Skills</strong></p>
-                <p style="margin-bottom: 15px;">Multimedia editing | Motion design | Code and AI driven creation | Art direction | Content strategy | Audiovisual production | International editorial project management</p>
-                
-                <p style="margin-top: 30px; font-style: italic; color: #a39274;">10 years of experience | Business Wire + professional creative projects</p>
-                
-                <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(201, 169, 97, 0.3); text-align: center;">
-                    <a href="https://sabinefcisse.com/" target="_blank" style="color: #c9a961; text-decoration: none; margin-right: 20px; font-weight: bold;">→ Professional portfolio</a>
-                    <a href="https://www.linkedin.com/in/sabinecisse/" target="_blank" style="color: #c9a961; text-decoration: none; font-weight: bold;">→ LinkedIn</a>
-                </p>`
+                content: `<p style="margin-bottom: 15px; color: #c9a961; letter-spacing: 0.03em;">Author, senior multimedia editor, creative technologist, art director.</p>
+                <p style="margin-bottom: 15px;">For ten years I edited content for companies around the world. Since 2024 I have brought that rigour to my own stories.</p>
+                <p style="margin-bottom: 20px; margin-top: 10px;"><strong>Background</strong></p>
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;"><p style="margin-bottom: 8px;"><strong style="color: #c9a961;">2024 to present</strong></p><p style="margin-bottom: 15px;"><strong>Creative technologist and art director, JGC Studio</strong><br>Motion design, code and AI driven creation, transmedia narrative strategy around Chronicle of Evana, Dark and Light Academia art direction, TikTok and YouTube videos, podcast.</p></div>
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;"><p style="margin-bottom: 8px;"><strong style="color: #c9a961;">Since 2015</strong></p><p style="margin-bottom: 15px;"><strong>Founder of the JGC Blog (Journalist GeoCultures)</strong><br>Literary and cultural analysis; archives since 2015.</p></div>
+                <div style="border-left: 3px solid #c9a961; padding-left: 20px; margin-bottom: 20px;"><p style="margin-bottom: 8px;"><strong style="color: #c9a961;">2015 to January 2026</strong></p><p style="margin-bottom: 15px;"><strong>Senior multimedia editor, Business Wire</strong><br>Editorial quality control, SEO, agency wire feeds (AFP, ANSA, VWD, NTB), multilingual workflows and technical editing of corporate content for international clients.</p></div>
+                <p style="margin-bottom: 10px; margin-top: 25px;"><strong>Skills</strong></p><p style="margin-bottom: 15px;">Multimedia editing · Motion design · Code and AI driven creation · Art direction · Content strategy · Audiovisual production · International editorial project management</p>
+                <p style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(201, 169, 97, 0.3); text-align: center;"><a href="https://sabinefcisse.com/" target="_blank" style="color: #c9a961; text-decoration: none; margin: 0 10px; font-weight: bold;">→ Professional portfolio</a> <a href="https://www.linkedin.com/in/sabinecisse/" target="_blank" style="color: #c9a961; text-decoration: none; margin: 0 10px; font-weight: bold;">→ LinkedIn</a></p>`
             },
+
             lamp: {
-                title: "Contact & Collaboration",
-                content: `<div style="background: linear-gradient(135deg, rgba(201,169,97,0.15) 0%, rgba(61,40,23,0.6) 100%); border: 2px solid #c9a961; border-left: 5px solid #c9a961; padding: 18px 20px; margin-bottom: 22px; text-align: center;">
-                    <p style="font-family: Georgia, serif; font-size: 1.05rem; font-weight: bold; color: #c9a961; margin-bottom: 6px; letter-spacing: 0.04em;">✦ By invitation only at this time ✦</p>
-                    <p style="font-size: 0.95rem; color: #d4c5a9; margin: 0;">Booking closed until January 2027.<br>To discuss a future project, write to me via the form below.</p>
-                </div>
-                <p style="margin-bottom: 15px;">This lamp illuminates my projects and symbolises the brilliant ideas born from our collaborations.</p>
-                
-                <p style="margin-bottom: 15px;"><strong>Do you have a project in mind?</strong></p>
-                <p style="margin-bottom: 15px;">I would be delighted to discuss with you and bring your boldest ideas to life.</p>
-                
-                <p style="margin-bottom: 15px;"><strong>Services offered:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Art direction & visual identity</li>
-                    <li>Video production & motion design</li>
-                    <li>Content strategy & multimedia editing</li>
-                    <li>Podcast production & audio content</li>
-                    <li>Front-end web development</li>
-                </ul>
-                
-                <p style="margin-bottom: 20px;"><strong>Get in touch:</strong></p>
-                <p style="margin-bottom: 10px;">Email: <a href="mailto:contact@journalistgeocultures.com" style="color: #c9a961;">contact@journalistgeocultures.com</a></p>
-                <p style="margin-bottom: 10px;">LinkedIn: <a href="https://www.linkedin.com/in/sabinecisse" target="_blank" style="color: #c9a961;">Sabine F. Cissé</a></p>
-                <p style="margin-bottom: 10px;">Portfolio: <a href="https://sabinefcisse.com/" target="_blank" style="color: #c9a961;">sabinefcisse.com</a></p>
-                
-                <div style="margin-top: 25px; text-align: center;">
-                    <button onclick="openContactFromLamp();" style="background: linear-gradient(135deg, #c9a961 0%, #a38950 100%); border: none; color: #1a1510; font-family: Georgia, serif; font-size: 0.95rem; font-weight: bold; padding: 12px 28px; cursor: pointer; letter-spacing: 0.05em; transition: all 0.3s;">Write to me via the form</button>
-                </div>
-                <p style="margin-top: 16px; color: #c9a961; font-style: italic; text-align: center;">Let's turn your ideas into unforgettable experiences</p>`
+                title: "Contact and Collaboration",
+                content: `<div style="background: linear-gradient(135deg, rgba(201,169,97,0.15) 0%, rgba(61,40,23,0.6) 100%); border: 2px solid #c9a961; border-left: 5px solid #c9a961; padding: 18px 20px; margin-bottom: 22px; text-align: center;"><p style="font-family: Georgia, serif; font-size: 1.05rem; font-weight: bold; color: #c9a961; margin-bottom: 6px; letter-spacing: 0.04em;">✦ By invitation only at this time ✦</p><p style="font-size: 0.95rem; color: #d4c5a9; margin: 0;">Booking closed until January 2027.<br>To discuss a future project, write to me.</p></div>
+                <p style="margin-bottom: 15px;">An editorial, cultural or visual project? Write to me: I read every message with care.</p>
+                <p style="margin-bottom: 15px;"><strong>What I offer</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;"><li>Art direction and visual identity</li><li>Video production and motion design</li><li>Content strategy and multimedia editing</li><li>Podcast production</li><li>Front-end web development</li></ul>
+                <p style="margin-bottom: 10px;">Email: <a href="mailto:contact@journalistgeocultures.com" style="color: #c9a961;">contact@journalistgeocultures.com</a></p><p style="margin-bottom: 10px;">LinkedIn: <a href="https://www.linkedin.com/in/sabinecisse/" target="_blank" style="color: #c9a961;">Sabine F. Cissé</a></p><p style="margin-bottom: 10px;">Portfolio: <a href="https://sabinefcisse.com/" target="_blank" style="color: #c9a961;">sabinefcisse.com</a></p><div style="margin-top: 25px; text-align: center;"><button onclick="openContactFromLamp();" style="background: linear-gradient(135deg, #c9a961 0%, #a38950 100%); border: none; color: #1a1510; font-family: Georgia, serif; font-size: 0.95rem; font-weight: bold; padding: 12px 28px; cursor: pointer; letter-spacing: 0.05em; transition: all 0.3s;">Write a message</button></div>`
             }
         };
 
