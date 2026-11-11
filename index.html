@@ -763,7 +763,7 @@
     <div class="welcome-overlay" onclick="hideWelcome(event)">
         <div class="welcome-box" onclick="event.stopPropagation()">
             <h1>Bienvenue</h1>
-            <p>Je suis <strong>Sabine F. Cissé</strong>, autrice et créatrice d'expériences numériques immersives chez <strong>JGC Studio</strong>.</p>
+            <p>Je suis <strong>Sabine F. Cissé</strong>, autrice et technologue créative chez <strong>JGC Studio</strong>.</p>
             <p>Entrez dans mon univers où design, technologie et storytelling se rencontrent.</p>
             <p class="welcome-hint">✨ Cliquez sur les objets qui s'illuminent pour découvrir mon histoire...</p>
         </div>
@@ -790,25 +790,6 @@
             <div id="modalBody"></div>
         </div>
     </div>
-
-    <!-- Music Player -->
-    <div class="music-player">
-        <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">
-            ▶️
-        </button>
-        <div class="music-info">
-            <div class="music-wave paused"></div>
-            <div class="music-wave paused"></div>
-            <div class="music-wave paused"></div>
-            <span id="musicStatus">Music Cosmos</span>
-        </div>
-    </div>
-
-    <!-- Audio Element (invisible) -->
-    <audio id="bgMusic" loop>
-        <source src="https://journalistgeocultures.wordpress.com/wp-content/uploads/2026/04/rhian-sheehan-la-boite-a-musique-eclise-remix.mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas l'audio.
-    </audio>
 
     <!-- Footer -->
     <!-- CHANGEMENT: © 2024-2026 (plage de copyright, pas année de création seule) -->
@@ -1192,35 +1173,6 @@
             }
         });
 
-        // Music Player Controls
-        const bgMusic = document.getElementById('bgMusic');
-        const musicToggle = document.getElementById('musicToggle');
-        const musicStatus = document.getElementById('musicStatus');
-        const musicWaves = document.querySelectorAll('.music-wave');
-        let isPlaying = false;
-
-        function toggleMusic() {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicToggle.innerHTML = '▶️';
-                musicStatus.textContent = 'Music Cosmos';
-                musicWaves.forEach(wave => wave.classList.add('paused'));
-                isPlaying = false;
-            } else {
-                bgMusic.play();
-                musicToggle.innerHTML = '⏸';
-                musicStatus.textContent = 'En lecture';
-                musicWaves.forEach(wave => wave.classList.remove('paused'));
-                isPlaying = true;
-            }
-        }
-
-        // Volume control
-        bgMusic.volume = 0.5;
-
-        // Autoplay désactivé par défaut (respect des navigateurs)
-        // Si vous voulez l'autoplay, décommentez la ligne suivante :
-        // window.addEventListener('load', () => { setTimeout(() => toggleMusic(), 5000); });
     </script>
 </body>
 </html>
