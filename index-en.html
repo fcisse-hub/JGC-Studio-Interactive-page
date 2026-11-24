@@ -5,9 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>JGC Studio · Sabine F. Cissé</title>
 <meta name="description" content="Sabine F. Cissé's creative study: a Dark Academia desk to explore, object by object.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/eb-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/playfair-display-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Polices de la charte JGC, hébergées sur le site (licence OFL, voir fonts/) : aucune donnée envoyée à Google */
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/playfair-display-400.woff2) format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/playfair-display-500.woff2) format("woff2"); }
+@font-face { font-family: "EB Garamond"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/eb-garamond-400.woff2) format("woff2"); }
+@font-face { font-family: "EB Garamond"; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/eb-garamond-500.woff2) format("woff2"); }
+@font-face { font-family: "EB Garamond"; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/eb-garamond-400-italic.woff2) format("woff2"); }
+@font-face { font-family: "Courier Prime"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/courier-prime-400.woff2) format("woff2"); }
+@font-face { font-family: "Courier Prime"; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/courier-prime-700.woff2) format("woff2"); }
 :root { --cream: #EBE4D6; --cream-dim: rgba(235,228,214,.84); --gold: #A87230; --gold-soft: #c99a4b; --ink: #1C1915; --teal: #2E5C5A; --scrim: 12,11,9; --card-paper: #15110c; --card-ink: #d9ccb4;
   --display: "Playfair Display", Georgia, serif; --text: "EB Garamond", Georgia, serif; --mono: "Courier Prime", "Courier New", monospace; }
 * { box-sizing: border-box; }
@@ -90,6 +98,15 @@ dialog .close { position: absolute; top: .8rem; right: 1rem; background: none; b
 .link-row { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
 .link-btn { border: 1px solid var(--gold); padding: .45rem .9rem; text-decoration: none; color: var(--cream); font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; }
 .modal-accent { color: var(--gold-soft) !important; font-style: italic; }
+dialog a { color: var(--gold-soft); }
+
+/* Copyright et mentions légales (lampe, fenêtre de la lampe, lecture sans animation) */
+.panel p.legal, dialog p.legal, .reader p.legal { font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; line-height: 1.6; color: rgba(235,228,214,.62) !important; margin: 1.1rem 0 0; }
+.legal button { font: inherit; letter-spacing: inherit; color: inherit; background: none; border: 0; border-bottom: 1px solid rgba(168,114,48,.6); padding: 0; cursor: pointer; }
+.legal button:hover, .legal button:focus-visible { color: var(--gold-soft); }
+dialog .legal-body p { font-size: 1rem; }
+dialog .legal-body p strong { font-family: var(--mono); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); font-weight: 400; }
+.reader p.legal { text-align: center; margin: 0 0 1rem; }
 
 /* Formulaire de contact (lampe) */
 .contact { margin-top: 1.8rem; padding-top: 1.4rem; border-top: 1px solid rgba(168,114,48,.45); }
@@ -168,10 +185,39 @@ body.static .track, body.static .stage, body.static .panel, body.static .chapnav
 (async () => {
   const UI = {
     fr: { form_title: "Commençons l'échange", form_name: "Votre nom", form_name_ph: "Prénom Nom", form_email: "Votre e-mail", form_email_ph: "votre@email.com", form_msg: "Votre message", form_msg_ph: "Parlez-moi de votre projet, de vos ambitions, de ce qui vous anime…", form_send: "Envoyer le message", form_sending: "Envoi en cours…", form_retry: "Réessayer", form_note: "Réponse sous 48 heures.", form_ok: "Message envoyé.", form_ok2: "Merci pour votre message : je vous réponds sous 48 heures.", form_err: "L'envoi n'a pas abouti. Réessayez, ou écrivez-moi à contact@journalistgeocultures.com.", write: "Écrire un message",
-      blog: "Le Blog", portfolio: "Portfolio", static: "Lire sans animation", static_on: "Voyage immersif", more: "Lire la suite", hint: "Faites défiler pour entrer", music: "Musique", music_on: "Pause", sub: "Le cabinet de création de Sabine F. Cissé", objects: "Objets" },
+      blog: "Le Blog", portfolio: "Portfolio", static: "Lire sans animation", static_on: "Voyage immersif", more: "Lire la suite", hint: "Faites défiler pour entrer", music: "Musique", music_on: "Pause", sub: "Le cabinet de création de Sabine F. Cissé", objects: "Objets", legal: "Mentions légales" },
     en: { form_title: "Let's start the conversation", form_name: "Your name", form_name_ph: "First Last", form_email: "Your email", form_email_ph: "you@example.com", form_msg: "Your message", form_msg_ph: "Tell me about your project, your ambitions, what drives you…", form_send: "Send message", form_sending: "Sending…", form_retry: "Try again", form_note: "Reply within 48 hours.", form_ok: "Message sent.", form_ok2: "Thank you for your message: I will reply within 48 hours.", form_err: "The message could not be sent. Please try again, or write to contact@journalistgeocultures.com.", write: "Write a message",
-      blog: "The Blog", portfolio: "Portfolio", static: "Read without animation", static_on: "Immersive journey", more: "Read more", hint: "Scroll to enter", music: "Music", music_on: "Pause", sub: "Sabine F. Cissé's creative study", objects: "Objects" }
+      blog: "The Blog", portfolio: "Portfolio", static: "Read without animation", static_on: "Immersive journey", more: "Read more", hint: "Scroll to enter", music: "Music", music_on: "Pause", sub: "Sabine F. Cissé's creative study", objects: "Objects", legal: "Legal notice" }
   };
+  // Mentions légales : le nom légal (Sabine Fantacé Cissé) n'apparaît qu'ici ; partout ailleurs, Sabine F. Cissé
+  const MAIL = '<a href="mailto:contact@journalistgeocultures.com">contact@journalistgeocultures.com</a>';
+  const LEGAL = {
+    fr: `<h2>Mentions légales</h2><div class="legal-body">
+      <p><strong>Éditrice du site</strong></p>
+      <p>Le site jgc-studio.com est édité par Sabine Fantacé Cissé, entrepreneur individuel (EI), autrice sous le nom de Sabine F. Cissé. JGC Studio est le nom de son atelier de création.<br>Siège : c/o Hellodom, 114 rue Marceau, 93100 Montreuil, France.<br>SIREN 131 682 304, SIRET 131 682 304 00020, inscrite au Registre national des entreprises.<br>Contact : ${MAIL}<br>Directrice de la publication : Sabine Fantacé Cissé.</p>
+      <p><strong>Hébergement</strong></p>
+      <p>GitHub Pages, un service de GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Téléphone : +1 877 448 4820.</p>
+      <p><strong>Propriété intellectuelle</strong></p>
+      <p>Les textes, les images, les vidéos et la conception de ce site appartiennent à Sabine F. Cissé, sauf mention contraire. Toute reproduction, totale ou partielle, sans son autorisation écrite est interdite. Les images et les vidéos sont créées avec Adobe Firefly, sous sa direction artistique. Le poème <em>Invictus</em> de William Ernest Henley (1875) appartient au domaine public. Les polices Playfair Display, EB Garamond et Courier Prime sont publiées sous licence SIL Open Font License.</p>
+      <p><strong>Données personnelles</strong></p>
+      <p>Le formulaire de contact recueille votre nom, votre adresse e-mail et votre message, dans le seul but de vous répondre. Formspree (Formspree, Inc., États-Unis) achemine le formulaire jusqu'à la messagerie de l'éditrice. Vos données sont conservées trois ans au plus après notre dernier échange. Elles ne sont ni vendues, ni cédées, ni utilisées à d'autres fins.</p>
+      <p>Vous pouvez y accéder, les faire corriger ou supprimer en écrivant à ${MAIL}. Vous pouvez aussi adresser une réclamation à la CNIL (<a href="https://www.cnil.fr/" target="_blank" rel="noopener">cnil.fr</a>).</p>
+      <p>Ce site n'utilise ni cookie ni outil de mesure d'audience. Il enregistre seulement dans votre navigateur votre langue et votre mode de lecture, pour les retrouver à votre prochaine visite.</p>
+      <p class="legal">© 2026 JGC Studio · Sabine F. Cissé</p></div>`,
+    en: `<h2>Legal notice</h2><div class="legal-body">
+      <p><strong>Publisher</strong></p>
+      <p>jgc-studio.com is published by Sabine Fantacé Cissé, sole trader registered in France (entrepreneur individuel, EI), author under the name Sabine F. Cissé. JGC Studio is the name of her creative studio.<br>Registered address: c/o Hellodom, 114 rue Marceau, 93100 Montreuil, France.<br>SIREN 131 682 304, SIRET 131 682 304 00020, French National Business Register (RNE).<br>Contact: ${MAIL}<br>Publication director: Sabine Fantacé Cissé.</p>
+      <p><strong>Hosting</strong></p>
+      <p>GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States. Phone: +1 877 448 4820.</p>
+      <p><strong>Intellectual property</strong></p>
+      <p>The texts, images, videos and design of this site belong to Sabine F. Cissé unless otherwise stated. Any reproduction, in whole or in part, without her written permission is prohibited. The images and videos are created with Adobe Firefly under her art direction. <em>Invictus</em> by William Ernest Henley (1875) is in the public domain. The Playfair Display, EB Garamond and Courier Prime typefaces are released under the SIL Open Font License.</p>
+      <p><strong>Personal data</strong></p>
+      <p>The contact form collects your name, your email address and your message, only to reply to you. Formspree (Formspree, Inc., United States) delivers the form to the publisher's mailbox. Your data is kept for no more than three years after our last exchange. It is never sold, shared or used for any other purpose.</p>
+      <p>You can access, correct or delete it by writing to ${MAIL}. You can also lodge a complaint with the CNIL, the French data protection authority (<a href="https://www.cnil.fr/" target="_blank" rel="noopener">cnil.fr</a>).</p>
+      <p>This site uses no cookies and no audience measurement. It only stores your language and reading mode in your browser, to remember them on your next visit.</p>
+      <p class="legal">© 2026 JGC Studio · Sabine F. Cissé</p></div>`
+  };
+  const legalLine = () => `<p class="legal">© 2026 JGC Studio · Sabine F. Cissé · <button class="legal-link" type="button">${UI[lang].legal}</button></p>`;
   // Arrêts : ouverture puis les huit objets, dans l'ordre de la caméra. side = côté du texte sur ordinateur.
   const STOPS = [
     { key: "_welcome", side: "bottom", label: { fr: "0 · L'ouverture", en: "0 · The opening" } },
@@ -225,7 +271,7 @@ body.static .track, body.static .stage, body.static .panel, body.static .chapnav
       } else {
         const it = C[lang][s.key];
         const name = s.label[lang].replace(/^[0IVX]+ · /, "");
-        d.innerHTML = `<p class="kicker"><span class="seal">${seal(ROMAN[i])}</span><span>${name}</span></p><h2>${it.title}</h2><p>${leadOf(it.body)}</p>${it.teaser ? `<p class="teaser">${it.teaser}</p>` : ""}<p class="row"><button class="more" type="button">${UI[lang].more}</button>${s.key === "lamp" ? `<button class="more write" type="button">${UI[lang].write}</button>` : ""}</p>`;
+        d.innerHTML = `<p class="kicker"><span class="seal">${seal(ROMAN[i])}</span><span>${name}</span></p><h2>${it.title}</h2><p>${leadOf(it.body)}</p>${it.teaser ? `<p class="teaser">${it.teaser}</p>` : ""}<p class="row"><button class="more" type="button">${UI[lang].more}</button>${s.key === "lamp" ? `<button class="more write" type="button">${UI[lang].write}</button>` : ""}</p>${s.key === "lamp" ? legalLine() : ""}`;
         d.querySelector(".more").onclick = () => openDlg(i);
         if (s.key === "lamp") d.querySelector(".write").onclick = () => openDlg(i, true);
       }
@@ -235,7 +281,7 @@ body.static .track, body.static .stage, body.static .panel, body.static .chapnav
   function buildReader() {
     const r = document.getElementById("reader"); const w = C[lang]._welcome;
     r.innerHTML = `<section><img src="img/s0${sfx()}.jpg" alt=""><h2>JGC Studio</h2><p>${w[0]}</p><p>${w[1]}</p></section>` +
-      STOPS.slice(1).map((s, k) => `<section><img src="img/s${k + 1}${sfx()}.jpg" alt=""><h2>${C[lang][s.key].title}</h2>${C[lang][s.key].body}${s.key === "lamp" ? contactForm("r") : ""}</section>`).join("");
+      STOPS.slice(1).map((s, k) => `<section><img src="img/s${k + 1}${sfx()}.jpg" alt=""><h2>${C[lang][s.key].title}</h2>${C[lang][s.key].body}${s.key === "lamp" ? contactForm("r") : ""}</section>`).join("") + legalLine();
   }
   function buildTrack() {
     segs = []; let y = 0;
@@ -323,7 +369,7 @@ body.static .track, body.static .stage, body.static .panel, body.static .chapnav
   }
   function openDlg(i, toForm) {
     const k = STOPS[i].key, it = C[lang][k];
-    document.getElementById("dlg-body").innerHTML = `<h2>${it.title}</h2>${it.body}` + (k === "lamp" ? contactForm("d") : "");
+    document.getElementById("dlg-body").innerHTML = `<h2>${it.title}</h2>${it.body}` + (k === "lamp" ? contactForm("d") + legalLine() : "");
     const dlg = document.getElementById("dlg"); dlg.showModal();
     if (toForm) { const sec = dlg.querySelector(".contact"); sec.scrollIntoView({ block: "start" }); sec.querySelector("input").focus({ preventScroll: true }); }
   }
@@ -342,6 +388,14 @@ body.static .track, body.static .stage, body.static .panel, body.static .chapnav
     } catch (err) {
       btn.disabled = false; btn.textContent = u.form_retry; st.textContent = u.form_err; st.classList.add("err");
     }
+  });
+  // Mentions légales : ouvertes depuis la lampe, sa fenêtre ou la lecture sans animation
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".legal-link")) return;
+    const dlg = document.getElementById("dlg");
+    document.getElementById("dlg-body").innerHTML = LEGAL[lang];
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
   });
   document.getElementById("dlg-close").onclick = () => document.getElementById("dlg").close();
   document.getElementById("dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
